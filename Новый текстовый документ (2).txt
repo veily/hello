@@ -1,0 +1,31 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+int main()
+{
+const int n = 11;
+double x[n]{ 0,1,2,3,4,5,6,7,8,9,10}, y[n], xy[n], sumY = 0, sumXY = 0, sumX = 0, sumXX = 0;
+double a, b, pog = 0;
+
+for (int i = 0; i < 11; i++) {
+cout « "y" « i + 1 « " : ";
+cin » y[i];
+xy[i] = x[i] * y[i];
+sumY = sumY + y[i];
+sumX = sumX + x[i];
+sumXX = sumXX + x[i] * x[i];
+sumXY = sumXY + xy[i];
+
+}
+cout « endl « sumY;
+cout « endl « sumXY;
+a = ((n * sumXY) - (sumX * sumY)) / (n *sumXX - sumX*sumX);
+cout « endl « "a: " « a;
+b = (sumY - a * sumX) / n;
+cout « endl « "b: " « b;
+cout « endl « "Y: " « a « "x + " « b;
+for (int i = 0; i < 5; i++) {
+pog = pog + pow((y[i] - (a * x[i] + b)), 2);
+}
+cout « endl « "pog: " « pog;
+}
